@@ -81,3 +81,18 @@ Dans le cadre de notre projet de gestionnaire de tâches, nous avons identifié 
 Certains patterns sont déjà présents et utilisés naturellement dans React (State, Observer partiel).  
 D’autres sont compatibles et pourraient être ajoutés pour des fonctionnalités plus avancées (Command, Decorator, Singleton).  
 Enfin, certains sont inadaptés pour notre application simple (Abstract Factory, Builder).
+
+
+
+
+| Pattern           | Présence                                  | Compatibilité                                         | Incompatibilité                          |
+|------------------|------------------------------------------|-----------------------------------------------------|-----------------------------------------|
+| MVC               | Partiellement présent (Model/State, View, Controller) | Peut être renforcé avec un service métier séparé    | React combine souvent View et Controller |
+| Singleton         | Aucun                                      | Possible pour un gestionnaire global de tâches      | Complexifie testabilité et réactivité    |
+| Abstract Factory  | Aucun                                      | Utile pour créer différents types de tâches        | Surdimensionné pour un projet simple    |
+| Builder           | Non utilisé                                | Utile pour construire des tâches complexes         | Inutile pour des tâches simples         |
+| Decorator         | Non utilisé                                | Ajouter dynamiquement des fonctionnalités (badge, rappel) | Props et composants enfants suffisent   |
+| Command           | Partiellement présent (add, delete, toggle) | Peut formaliser undo/redo complet                  | Trop complexe pour ce projet simple     |
+| Observer          | Implicite via React (hooks + state)       | Utile pour notifier des services externes          | Pas nécessaire grâce aux hooks          |
+| State             | Déjà utilisé (PENDING / DONE avec transitions) | Facilement extensible pour d’autres états         | Aucun, pattern parfaitement adapté      |
+
